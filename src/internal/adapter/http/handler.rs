@@ -1,9 +1,9 @@
-use actix_web::web;
+use actix_web::{HttpResponse, web};
 
 use crate::internal::infra::api::response;
 
 async fn health() -> impl actix_web::Responder {
-    web::Json(response::BaseResponse {
+    HttpResponse::Ok().json(response::BaseResponse {
         message: "Service is running!".to_string(),
     })
 }
